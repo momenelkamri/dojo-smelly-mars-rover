@@ -1,0 +1,31 @@
+# Node modules
+node_modules/
+
+# Compiled output
+dist/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+
+# Environment files
+.env
+
+# Ionide (cross platform F# VS Code tools) working folder
+.ionide/
+
+#idea
+.idea
+.idea/
+/.idea
+
+#github
+.github
+.github/
+/.github
+
+#Approval Tests
+*.received.txt
