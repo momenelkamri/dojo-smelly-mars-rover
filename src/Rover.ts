@@ -4,7 +4,9 @@ export class Rover {
   
     constructor(startingPosition: string = "") {
       const startingPositionParts = startingPosition.split(" ");
-      if (startingPositionParts.length >= 3) {
+      const MIN_STARTING_POSITION_PARTS = 3;
+      
+      if (startingPositionParts.length >= MIN_STARTING_POSITION_PARTS) {
         this.roverState.xCoordinate = parseInt(startingPositionParts[0], 10);
         this.roverState.yCoordinate = parseInt(startingPositionParts[1], 10);
         this.roverState.currentHeading = startingPositionParts[2][0];

@@ -2,6 +2,6 @@
 - [X] create md files
 - [X] rename unclear variables
 - [X] rename unclear methods
-- [ ] remove magic numbers and primitives obsession
+- [X] remove magic numbers and primitives obsession
 - [X] remove dead code
 - [ ] add comments where needed 
