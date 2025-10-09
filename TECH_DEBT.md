@@ -11,3 +11,4 @@
 - [X] rename pos() method to getCoordinatesWithHeading()
 - [X] remove dead code
 - [X] replace magic number '3' with named constant MIN_STARTING_POSITION_PARTS
+- [X] simplify if else logic 

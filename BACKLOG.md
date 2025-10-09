@@ -5,3 +5,4 @@
 - [X] remove magic numbers and primitives obsession
 - [X] remove dead code
 - [ ] add comments where needed 
+- [ ] simplify if else logic
