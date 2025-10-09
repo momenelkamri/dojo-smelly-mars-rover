@@ -13,18 +13,18 @@ export class Rover {
   
     public go(instructions: string): void {
       for (let i = 0; i < instructions.length; i++) {
-        const c = instructions[i];
-        if (c === "L") {
+        const currentInstruction = instructions[i];
+        if (currentInstruction === "L") {
           if (this.rs.dd === "E")      { this.rs.dd = "N"; }
           else if (this.rs.dd === "N") { this.rs.dd = "W"; }
           else if (this.rs.dd === "W") { this.rs.dd = "S"; }
           else if (this.rs.dd === "S") { this.rs.dd = "E"; }
-        } else if (c === "R") {
+        } else if (currentInstruction === "R") {
           if (this.rs.dd === "E")      { this.rs.dd = "S"; }
           else if (this.rs.dd === "S") { this.rs.dd = "W"; }
           else if (this.rs.dd === "W") { this.rs.dd = "N"; }
           else if (this.rs.dd === "N") { this.rs.dd = "E"; }
-        } else if (c === "M") {
+        } else if (currentInstruction === "M") {
           if (this.rs.dd === "E")      { this.rs.xx++; }
           if (this.rs.dd === "S")      { this.rs.yy--; }
           if (this.rs.dd === "W")      { this.rs.xx--; }
