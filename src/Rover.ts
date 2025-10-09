@@ -11,9 +11,9 @@ export class Rover {
       }
     }
   
-    public go(cms: string): void {
-      for (let i = 0; i < cms.length; i++) {
-        const c = cms[i];
+    public go(instructions: string): void {
+      for (let i = 0; i < instructions.length; i++) {
+        const c = instructions[i];
         if (c === "L") {
           if (this.rs.dd === "E")      { this.rs.dd = "N"; }
           else if (this.rs.dd === "N") { this.rs.dd = "W"; }
