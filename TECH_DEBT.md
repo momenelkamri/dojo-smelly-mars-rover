@@ -1,0 +1,13 @@
+- [X] rename P to startingPosition
+- [X] rename cms to instructions
+- [X] rename c to currentInstruction
+- [X] rename xx, yy, dd to xCoordinate, yCoordinate, currentHeading
+- [X] rename s to startingPositionParts
+- [X] rename rs to roverState
+- [X] rename dd to currentHeading
+- [X] rename y to yCoordinate
+- [X] rename x to xCoordinate
+- [X] rename XYD() method to COORDINATES_WITH_HEADING()
+- [X] rename pos() method to getCoordinatesWithHeading()
+- [X] remove dead code
+- [X] replace magic number '3' with named constant MIN_STARTING_POSITION_PARTS
