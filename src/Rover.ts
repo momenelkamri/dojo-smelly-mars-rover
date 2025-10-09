@@ -32,10 +32,6 @@ export class Rover {
         }
       }
     }
-  
-    public G(z: string): void {
-      this.go(z[0]);
-    }
 
     public get COORDINATES_WITH_HEADING(): string {
       return `${this.roverState.xCoordinate} ${this.roverState.yCoordinate} ${this.roverState.currentHeading}`;

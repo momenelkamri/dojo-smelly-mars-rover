@@ -3,5 +3,5 @@
 - [X] rename unclear variables
 - [X] rename unclear methods
 - [ ] remove magic numbers and primitives obsession
-- [ ] remove dead code
+- [X] remove dead code
 - [ ] add comments where needed 
