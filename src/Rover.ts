@@ -7,7 +7,7 @@ export class Rover {
       if (startingPositionParts.length >= 3) {
         this.roverState.xx = parseInt(startingPositionParts[0], 10);
         this.roverState.yy = parseInt(startingPositionParts[1], 10);
-        this.roverState.dd = startingPositionParts[2][0];
+        this.roverState.currentHeading = startingPositionParts[2][0];
       }
     }
   
@@ -15,20 +15,20 @@ export class Rover {
       for (let i = 0; i < instructions.length; i++) {
         const currentInstruction = instructions[i];
         if (currentInstruction === "L") {
-          if (this.roverState.dd === "E")      { this.roverState.dd = "N"; }
-          else if (this.roverState.dd === "N") { this.roverState.dd = "W"; }
-          else if (this.roverState.dd === "W") { this.roverState.dd = "S"; }
-          else if (this.roverState.dd === "S") { this.roverState.dd = "E"; }
+          if (this.roverState.currentHeading === "E")      { this.roverState.currentHeading = "N"; }
+          else if (this.roverState.currentHeading === "N") { this.roverState.currentHeading = "W"; }
+          else if (this.roverState.currentHeading === "W") { this.roverState.currentHeading = "S"; }
+          else if (this.roverState.currentHeading === "S") { this.roverState.currentHeading = "E"; }
         } else if (currentInstruction === "R") {
-          if (this.roverState.dd === "E")      { this.roverState.dd = "S"; }
-          else if (this.roverState.dd === "S") { this.roverState.dd = "W"; }
-          else if (this.roverState.dd === "W") { this.roverState.dd = "N"; }
-          else if (this.roverState.dd === "N") { this.roverState.dd = "E"; }
+          if (this.roverState.currentHeading === "E")      { this.roverState.currentHeading = "S"; }
+          else if (this.roverState.currentHeading === "S") { this.roverState.currentHeading = "W"; }
+          else if (this.roverState.currentHeading === "W") { this.roverState.currentHeading = "N"; }
+          else if (this.roverState.currentHeading === "N") { this.roverState.currentHeading = "E"; }
         } else if (currentInstruction === "M") {
-          if (this.roverState.dd === "E")      { this.roverState.xx++; }
-          if (this.roverState.dd === "S")      { this.roverState.yy--; }
-          if (this.roverState.dd === "W")      { this.roverState.xx--; }
-          if (this.roverState.dd === "N")      { this.roverState.yy++; }
+          if (this.roverState.currentHeading === "E")      { this.roverState.xx++; }
+          if (this.roverState.currentHeading === "S")      { this.roverState.yy--; }
+          if (this.roverState.currentHeading === "W")      { this.roverState.xx--; }
+          if (this.roverState.currentHeading === "N")      { this.roverState.yy++; }
         }
       }
     }
@@ -38,7 +38,7 @@ export class Rover {
     }
   
     public get XYD(): string {
-      return `${this.roverState.xx} ${this.roverState.yy} ${this.roverState.dd}`;
+      return `${this.roverState.xx} ${this.roverState.yy} ${this.roverState.currentHeading}`;
     }
 
     public pos(): string {
