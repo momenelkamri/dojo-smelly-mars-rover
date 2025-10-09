@@ -5,8 +5,8 @@ export class Rover {
     constructor(startingPosition: string = "") {
       const startingPositionParts = startingPosition.split(" ");
       if (startingPositionParts.length >= 3) {
-        this.roverState.xx = parseInt(startingPositionParts[0], 10);
-        this.roverState.yy = parseInt(startingPositionParts[1], 10);
+        this.roverState.xCoordinate = parseInt(startingPositionParts[0], 10);
+        this.roverState.yCoordinate = parseInt(startingPositionParts[1], 10);
         this.roverState.currentHeading = startingPositionParts[2][0];
       }
     }
@@ -25,10 +25,10 @@ export class Rover {
           else if (this.roverState.currentHeading === "W") { this.roverState.currentHeading = "N"; }
           else if (this.roverState.currentHeading === "N") { this.roverState.currentHeading = "E"; }
         } else if (currentInstruction === "M") {
-          if (this.roverState.currentHeading === "E")      { this.roverState.xx++; }
-          if (this.roverState.currentHeading === "S")      { this.roverState.yy--; }
-          if (this.roverState.currentHeading === "W")      { this.roverState.xx--; }
-          if (this.roverState.currentHeading === "N")      { this.roverState.yy++; }
+          if (this.roverState.currentHeading === "E")      { this.roverState.xCoordinate++; }
+          if (this.roverState.currentHeading === "S")      { this.roverState.yCoordinate--; }
+          if (this.roverState.currentHeading === "W")      { this.roverState.xCoordinate--; }
+          if (this.roverState.currentHeading === "N")      { this.roverState.yCoordinate++; }
         }
       }
     }
@@ -38,7 +38,7 @@ export class Rover {
     }
   
     public get XYD(): string {
-      return `${this.roverState.xx} ${this.roverState.yy} ${this.roverState.currentHeading}`;
+      return `${this.roverState.xCoordinate} ${this.roverState.yCoordinate} ${this.roverState.currentHeading}`;
     }
 
     public pos(): string {
