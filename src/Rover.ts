@@ -3,11 +3,11 @@ import { RoverState } from "./RoverState";
 export class Rover {
   
     constructor(startingPosition: string = "") {
-      const s = startingPosition.split(" ");
-      if (s.length >= 3) {
-        this.rs.xx = parseInt(s[0], 10);
-        this.rs.yy = parseInt(s[1], 10);
-        this.rs.dd = s[2][0];
+      const startingPositionParts = startingPosition.split(" ");
+      if (startingPositionParts.length >= 3) {
+        this.rs.xx = parseInt(startingPositionParts[0], 10);
+        this.rs.yy = parseInt(startingPositionParts[1], 10);
+        this.rs.dd = startingPositionParts[2][0];
       }
     }
   
