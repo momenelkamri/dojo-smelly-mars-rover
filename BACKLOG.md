@@ -1,7 +1,7 @@
 - [X] run tests
 - [X] create md files
-- [x] rename unclear variables
-- [ ] rename unclear methods
+- [X] rename unclear variables
+- [X] rename unclear methods
 - [ ] remove magic numbers and primitives obsession
 - [ ] remove dead code
 - [ ] add comments where needed 

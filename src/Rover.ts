@@ -36,13 +36,13 @@ export class Rover {
     public G(z: string): void {
       this.go(z[0]);
     }
-  
-    public get XYD(): string {
+
+    public get COORDINATES_WITH_HEADING(): string {
       return `${this.roverState.xCoordinate} ${this.roverState.yCoordinate} ${this.roverState.currentHeading}`;
     }
 
-    public pos(): string {
-      return this.XYD;
+    public getCoordinatesWithHeading(): string {
+      return this.COORDINATES_WITH_HEADING;
     }
 
     private roverState: RoverState = new RoverState();
