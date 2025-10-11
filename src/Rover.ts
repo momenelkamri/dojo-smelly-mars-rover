@@ -12,33 +12,6 @@ export class Rover {
         this.roverState.currentHeading = startingPositionParts[2][0] as Heading;
       }
     }
-  
-    public goOld(instructions: string): void {
-      const leftTurn: Record<Heading, Heading> = { E: "N", N: "W", W: "S", S: "E" };
-      const rightTurn: Record<Heading, Heading> = { E: "S", S: "W", W: "N", N: "E" };
-      const moveStep = { 
-        E: { x: 1, y: 0 }, 
-        S: { x: 0, y: -1 }, 
-        W: { x: -1, y: 0 }, 
-        N: { x: 0, y: 1 } 
-      };
-
-      for (const instruction of instructions) {
-        switch (instruction) {
-          case "L":
-            this.roverState.currentHeading = leftTurn[this.roverState.currentHeading as Heading];
-            break;
-          case "R":
-            this.roverState.currentHeading = rightTurn[this.roverState.currentHeading as Heading];
-            break;
-          case "M":
-            const step = moveStep[this.roverState.currentHeading as Heading];
-            this.roverState.xCoordinate += step.x;
-            this.roverState.yCoordinate += step.y;
-            break;
-        }
-      }
-    }
 
     public go(instructions: string): void {
       for (const instruction of instructions) {
