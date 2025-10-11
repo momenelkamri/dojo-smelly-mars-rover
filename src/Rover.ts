@@ -13,7 +13,7 @@ export class Rover {
       }
     }
   
-    public go(instructions: string): void {
+    public goOld(instructions: string): void {
       const leftTurn: Record<Heading, Heading> = { E: "N", N: "W", W: "S", S: "E" };
       const rightTurn: Record<Heading, Heading> = { E: "S", S: "W", W: "N", N: "E" };
       const moveStep = { 
@@ -39,6 +39,49 @@ export class Rover {
         }
       }
     }
+
+    public go(instructions: string): void {
+      for (const instruction of instructions) {
+        this.executeInstruction(instruction);
+      }
+    }
+
+    private executeInstruction(instruction: string): void {
+      if (instruction === "L") {
+        this.turnLeft();
+      } 
+
+      if (instruction === "R") {
+        this.turnRight();
+      }
+
+      if (instruction === "M") {
+        this.moveForward();
+      }
+    }
+
+    private turnLeft(): void {
+      const leftTurn: Record<Heading, Heading> = { E: "N", N: "W", W: "S", S: "E" };
+      this.roverState.currentHeading = leftTurn[this.roverState.currentHeading as Heading];
+    }
+    
+    private turnRight(): void {
+      const rightTurn: Record<Heading, Heading> = { E: "S", S: "W", W: "N", N: "E" };
+      this.roverState.currentHeading = rightTurn[this.roverState.currentHeading as Heading];
+    } 
+
+    private moveForward(): void {
+      const moveStep = { 
+        E: { x: 1, y: 0 }, 
+        S: { x: 0, y: -1 },
+        W: { x: -1, y: 0 }, 
+        N: { x: 0, y: 1 } 
+      };
+      const step = moveStep[this.roverState.currentHeading as Heading];
+      this.roverState.xCoordinate += step.x;
+      this.roverState.yCoordinate += step.y;
+    }
+
 
     public get COORDINATES_WITH_HEADING(): string {
       return `${this.roverState.xCoordinate} ${this.roverState.yCoordinate} ${this.roverState.currentHeading}`;

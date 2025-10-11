@@ -14,3 +14,5 @@
 - [X] simplify if else logic
 - [X] Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Record<Heading, Heading>'.
   No index signature with a parameter of type 'string' was found on type 'Record<Heading, Heading>'.
+
+- [ ] make complexity under 4

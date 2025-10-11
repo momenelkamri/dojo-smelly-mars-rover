@@ -5,3 +5,4 @@
 🍅 5 - simplify if statements
 🍅 6 - simplify if statements 
 ------ 6 🍅 ------
+🍅 7 - reduce complexity
