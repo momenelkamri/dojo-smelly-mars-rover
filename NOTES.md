@@ -8,3 +8,4 @@
 🍅 7 - reduce complexity
 🍅 8 - reduce complexity
 🍅 9 - reduce complexity
+🍅 10 - check code readability + code coverage

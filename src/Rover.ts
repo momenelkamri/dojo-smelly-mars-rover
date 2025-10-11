@@ -2,7 +2,7 @@ import { RoverState, Heading, Instructions } from "./RoverState";
 
 export class Rover {
   
-    constructor(startingPosition: string = "") {
+    constructor(startingPosition: string) {
       const startingPositionParts = startingPosition.split(" ");
       const MIN_STARTING_POSITION_PARTS = 3;
       
@@ -23,7 +23,7 @@ export class Rover {
       const instructions = {
         L: () => this.turnLeft(),
         R: () => this.turnRight(),
-        M: () => this.moveForward()
+        M: () => this.headingMove()
       };
       
       instructions[instruction]();
@@ -39,16 +39,16 @@ export class Rover {
       this.roverState.currentHeading = rightTurn[this.roverState.currentHeading as Heading];
     } 
 
-    private moveForward(): void {
-      const moveStep = { 
+    private headingMove(): void {
+      const headingMoveStep = { 
         E: { x: 1, y: 0 }, 
         S: { x: 0, y: -1 },
         W: { x: -1, y: 0 }, 
         N: { x: 0, y: 1 } 
       };
-      const step = moveStep[this.roverState.currentHeading as Heading];
-      this.roverState.xCoordinate += step.x;
-      this.roverState.yCoordinate += step.y;
+      const moveStep = headingMoveStep[this.roverState.currentHeading as Heading];
+      this.roverState.xCoordinate += moveStep.x;
+      this.roverState.yCoordinate += moveStep.y;
     }
 
 
