@@ -14,6 +14,18 @@ export class Rover {
     }
   
     public go(instructions: string): void {
+      const validInstructions = ["L", "R", "M"];
+
+      const leftTurn = { E: "N", N: "W", W: "S", S: "E" };
+      const rightTurn = { E: "S", S: "W", W: "N", N: "E" };
+      const moveStep = { 
+        E: { x: 1, y: 0 }, 
+        S: { x: 0, y: -1 }, 
+        W: { x: -1, y: 0 }, 
+        N: { x: 0, y: 1 } 
+      };
+
+
       for (let i = 0; i < instructions.length; i++) {
         const currentInstruction = instructions[i];
         if (currentInstruction === "L") {
