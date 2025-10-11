@@ -3,4 +3,5 @@
 🍅 3 - rename unclear variables
 🍅 4 - rename unclear methods + remove dead codes + magic numbers
 🍅 5 - simplify if statements
-🍅 6 - simplify if statements
+🍅 6 - simplify if statements 
+------ 6 🍅 ------
