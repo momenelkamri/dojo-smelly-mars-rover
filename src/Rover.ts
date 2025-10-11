@@ -1,6 +1,4 @@
-import { RoverState } from "./RoverState";
-  
-type Heading = "E" | "N" | "W" | "S";
+import { RoverState, Heading } from "./RoverState";
 
 export class Rover {
   
@@ -16,8 +14,6 @@ export class Rover {
     }
   
     public go(instructions: string): void {
-      const validInstructions = ["L", "R", "M"];
-
       const leftTurn: Record<Heading, Heading> = { E: "N", N: "W", W: "S", S: "E" };
       const rightTurn: Record<Heading, Heading> = { E: "S", S: "W", W: "N", N: "E" };
       const moveStep = { 
@@ -42,27 +38,6 @@ export class Rover {
             break;
         }
       }
-
-
-      // for (let i = 0; i < instructions.length; i++) {
-      //   const currentInstruction = instructions[i];
-      //   if (currentInstruction === "L") {
-      //     if (this.roverState.currentHeading === "E")      { this.roverState.currentHeading = "N"; }
-      //     else if (this.roverState.currentHeading === "N") { this.roverState.currentHeading = "W"; }
-      //     else if (this.roverState.currentHeading === "W") { this.roverState.currentHeading = "S"; }
-      //     else if (this.roverState.currentHeading === "S") { this.roverState.currentHeading = "E"; }
-      //   } else if (currentInstruction === "R") {
-      //     if (this.roverState.currentHeading === "E")      { this.roverState.currentHeading = "S"; }
-      //     else if (this.roverState.currentHeading === "S") { this.roverState.currentHeading = "W"; }
-      //     else if (this.roverState.currentHeading === "W") { this.roverState.currentHeading = "N"; }
-      //     else if (this.roverState.currentHeading === "N") { this.roverState.currentHeading = "E"; }
-      //   } else if (currentInstruction === "M") {
-      //     if (this.roverState.currentHeading === "E")      { this.roverState.xCoordinate++; }
-      //     if (this.roverState.currentHeading === "S")      { this.roverState.yCoordinate--; }
-      //     if (this.roverState.currentHeading === "W")      { this.roverState.xCoordinate--; }
-      //     if (this.roverState.currentHeading === "N")      { this.roverState.yCoordinate++; }
-      //   }
-      // }
     }
 
     public get COORDINATES_WITH_HEADING(): string {
