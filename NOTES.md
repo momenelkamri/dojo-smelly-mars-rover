@@ -6,3 +6,5 @@
 🍅 6 - simplify if statements 
 ------ 6 🍅 ------
 🍅 7 - reduce complexity
+🍅 8 - reduce complexity
+🍅 9 - reduce complexity
