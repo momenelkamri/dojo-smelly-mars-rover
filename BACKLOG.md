@@ -5,4 +5,7 @@
 - [X] remove magic numbers and primitives obsession
 - [X] remove dead code
 - [ ] add comments where needed 
-- [ ] simplify if else logic
+- [x] simplify if else logic
+- [x] reduce complexity
+- [x] add heading type
+- [x] add instructions type 

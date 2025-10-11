@@ -1,4 +1,4 @@
-import { RoverState, Heading } from "./RoverState";
+import { RoverState, Heading, Instructions } from "./RoverState";
 
 export class Rover {
   
@@ -13,24 +13,20 @@ export class Rover {
       }
     }
 
-    public go(instructions: string): void {
+    public go(instructions: Instructions | string): void {
       for (const instruction of instructions) {
-        this.executeInstruction(instruction);
+        this.executeInstruction(instruction as Instructions);
       }
     }
 
-    private executeInstruction(instruction: string): void {
-      if (instruction === "L") {
-        this.turnLeft();
-      } 
-
-      if (instruction === "R") {
-        this.turnRight();
-      }
-
-      if (instruction === "M") {
-        this.moveForward();
-      }
+    private executeInstruction(instruction: Instructions): void {
+      const instructions = {
+        L: () => this.turnLeft(),
+        R: () => this.turnRight(),
+        M: () => this.moveForward()
+      };
+      
+      instructions[instruction]();
     }
 
     private turnLeft(): void {
