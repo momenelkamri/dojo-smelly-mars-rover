@@ -11,4 +11,6 @@
 - [X] rename pos() method to getCoordinatesWithHeading()
 - [X] remove dead code
 - [X] replace magic number '3' with named constant MIN_STARTING_POSITION_PARTS
-- [ ] simplify if else logic
+- [X] simplify if else logic
+- [X] Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Record<Heading, Heading>'.
+  No index signature with a parameter of type 'string' was found on type 'Record<Heading, Heading>'.
