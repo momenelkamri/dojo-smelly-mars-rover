@@ -14,3 +14,5 @@
 🍅 13 - Local Quality Gate
 🍅 14 - Local Quality Gate
 🍅 15 - Local Quality Gate
+🍅 16 - remote Pipeline github actions
+🍅 17 - remote Pipeline github actions
