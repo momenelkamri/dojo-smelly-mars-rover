@@ -4,8 +4,9 @@
 - [X] rename unclear methods
 - [X] remove magic numbers and primitives obsession
 - [X] remove dead code
-- [ ] add comments where needed 
-- [x] simplify if else logic
-- [x] reduce complexity
-- [x] add heading type
-- [x] add instructions type 
+- [X] simplify if else logic
+- [X] reduce complexity
+- [X] add heading type
+- [X] add instructions type
+- [ ] No Dry (don't repeat yourself)
+- [ ] add comments where needed

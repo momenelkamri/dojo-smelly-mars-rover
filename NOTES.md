@@ -9,3 +9,4 @@
 🍅 8 - reduce complexity
 🍅 9 - reduce complexity
 🍅 10 - check code readability + code coverage
+🍅 11 - No Dry
