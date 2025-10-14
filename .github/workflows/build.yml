@@ -16,6 +16,7 @@ jobs:
           node-version: '20.x'
       - name: Install dependencies
         run: npm ci
-      # Uncomment the following if you have a build step, e.g., tsc
+      - name: Lint
+        run: npm run lint
       # - name: Build
       #   run: npm run build

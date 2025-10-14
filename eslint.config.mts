@@ -11,7 +11,7 @@ export default defineConfig([
     ignores: ["**/node_modules/**", "**/dist/**", "**/.history/**", "**/coverage/**"],
     plugins: {
       js,
-      complexity: complexityPlugin as any,
+      complexity: complexityPlugin as unknown as import("eslint").ESLint.Plugin,
     },
     extends: ["js/recommended"],
     languageOptions: { globals: globals.browser },
