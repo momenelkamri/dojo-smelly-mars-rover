@@ -16,3 +16,5 @@
 🍅 15 - Local Quality Gate
 🍅 16 - remote Pipeline github actions
 🍅 17 - remote Pipeline github actions
+🍅 18 - add comments + finalize
+------ 18 🍅 ------

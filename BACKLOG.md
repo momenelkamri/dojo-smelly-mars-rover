@@ -11,4 +11,4 @@
 - [X] No Dry (don't repeat yourself)
 - [X] Local Quality Gate
 - [X] Remote Pipeline GitHub Actions
-- [ ] add comments where needed
+- [X] add comments where needed

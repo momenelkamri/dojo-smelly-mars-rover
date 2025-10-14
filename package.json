@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "jest --config jest.config.js",
+    "coverage": "jest --config jest.config.js --coverage",
     "prepare": "husky install",
     "lint": "eslint ./src --ext .js,.ts --ignore-pattern .history/ --ignore-pattern coverage/"
   },

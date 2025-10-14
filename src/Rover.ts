@@ -2,6 +2,7 @@ import { RoverState, Heading, Instructions } from "./RoverState";
 
 export class Rover {
   
+    // Initialize rover with starting position (x, y, heading)
     constructor(startingPosition: string) {
       const startingPositionParts = startingPosition.split(" ");
       const MIN_STARTING_POSITION_PARTS = 3;
@@ -13,12 +14,14 @@ export class Rover {
       }
     }
 
+    // Process a string of instructions (L, R, M)
     public go(instructions: Instructions | string): void {
       for (const instruction of instructions) {
         this.executeInstruction(instruction as Instructions);
       }
     }
 
+    // Execute a single instruction: turn left/right or move forward
     private executeInstruction(instruction: Instructions): void {
       const instructions = {
         L: () => this.turn("L"),
@@ -29,6 +32,7 @@ export class Rover {
       instructions[instruction]();
     }
 
+    // Turn left or right based on current heading
     private turn(direction: "L" | "R"): void {
       const turns = {
         L: { E: "N", N: "W", W: "S", S: "E" },
@@ -39,6 +43,7 @@ export class Rover {
       this.roverState.currentHeading = turns[direction][current] as Heading;
     }
 
+    // Move one step in the current heading direction
     private headingMove(): void {
       const headingMoveStep = { 
         E: { x: 1, y: 0 }, 
@@ -51,14 +56,16 @@ export class Rover {
       this.roverState.yCoordinate += moveStep.y;
     }
 
-
+    // Return the current coordinates and heading as a formatted string
     public get COORDINATES_WITH_HEADING(): string {
       return `${this.roverState.xCoordinate} ${this.roverState.yCoordinate} ${this.roverState.currentHeading}`;
     }
 
+    // Public method to get the current coordinates and heading
     public getCoordinatesWithHeading(): string {
       return this.COORDINATES_WITH_HEADING;
     }
 
+    // Internal state of the rover
     private roverState: RoverState = new RoverState();
   }
