@@ -12,3 +12,5 @@
 🍅 11 - No Dry
 🍅 12 - Local Quality Gate
 🍅 12 - Local Quality Gate
+🍅 12 - Local Quality Gate
+🍅 12 - Local Quality Gate
