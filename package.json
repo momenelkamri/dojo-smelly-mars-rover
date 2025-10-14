@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest --config jest.config.js",
     "prepare": "husky install",
-    "lint": "eslint . --ext .js,.ts --ignore-pattern .history/ --ignore-pattern coverage/"
+    "lint": "eslint ./src --ext .js,.ts --ignore-pattern .history/ --ignore-pattern coverage/"
   },
   "keywords": [],
   "author": "",
