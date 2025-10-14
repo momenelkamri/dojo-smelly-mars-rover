@@ -9,4 +9,6 @@
 - [X] add heading type
 - [X] add instructions type
 - [X] No Dry (don't repeat yourself)
+- [X] Local Quality Gate
+- [ ] Remote Pipeline GitHub Actions
 - [ ] add comments where needed

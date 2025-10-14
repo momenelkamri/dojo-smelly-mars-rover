@@ -1,5 +1,5 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
-module.exports = {
+export default {
     preset: 'ts-jest',            // Tells Jest to use ts-jest for .ts files
     testEnvironment: 'node',      // Usually node for backend; can be 'jsdom' for frontend
     roots: ['<rootDir>/tests'],   // Points Jest to your test folder(s)

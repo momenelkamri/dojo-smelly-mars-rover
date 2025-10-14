@@ -3,16 +3,35 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest --config jest.config.js"
+    "test": "jest --config jest.config.js",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@eslint/js": "^9.37.0",
     "@types/jest": "^29.5.14",
+    "@typescript-eslint/eslint-plugin": "^8.46.1",
+    "@typescript-eslint/parser": "^8.46.1",
+    "eslint": "^9.37.0",
+    "eslint-plugin-complexity": "^1.0.2",
+    "globals": "^16.4.0",
+    "husky": "^8.0.0",
     "jest": "^29.7.0",
+    "jiti": "^2.6.1",
+    "lint-staged": "^16.2.4",
     "ts-jest": "^29.3.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.46.1"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --ignore-pattern .history/ --ignore-pattern coverage/"
+    ]
   }
 }
