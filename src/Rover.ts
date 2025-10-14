@@ -21,8 +21,8 @@ export class Rover {
 
     private executeInstruction(instruction: Instructions): void {
       const instructions = {
-        L: () => this.turnLeft(),
-        R: () => this.turnRight(),
+        L: () => this.turn("L"),
+        R: () => this.turn("R"),
         M: () => this.headingMove()
       };
       
@@ -38,18 +38,6 @@ export class Rover {
       const current = this.roverState.currentHeading;
       this.roverState.currentHeading = turns[direction][current] as Heading;
     }
-
-    private turnLeft(): void {
-      this.turn("L");
-      // const leftTurn: Record<Heading, Heading> = { E: "N", N: "W", W: "S", S: "E" };
-      // this.roverState.currentHeading = leftTurn[this.roverState.currentHeading as Heading];
-    }
-    
-    private turnRight(): void {
-      this.turn("R");
-      // const rightTurn: Record<Heading, Heading> = { E: "S", S: "W", W: "N", N: "E" };
-      // this.roverState.currentHeading = rightTurn[this.roverState.currentHeading as Heading];
-    } 
 
     private headingMove(): void {
       const headingMoveStep = { 

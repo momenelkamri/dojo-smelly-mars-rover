@@ -8,5 +8,5 @@
 - [X] reduce complexity
 - [X] add heading type
 - [X] add instructions type
-- [ ] No Dry (don't repeat yourself)
+- [X] No Dry (don't repeat yourself)
 - [ ] add comments where needed
