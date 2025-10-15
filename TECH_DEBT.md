@@ -14,6 +14,6 @@
 - [X] simplify if else logic
 - [X] Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Record<Heading, Heading>'.
   No index signature with a parameter of type 'string' was found on type 'Record<Heading, Heading>'.
-- [x] make complexity 4 or under
-- [x] instruction: Argument of type 'string' is not assignable to parameter of type 'Instructions'
-- [x] go: Argument of type 'string' is not assignable to parameter of type 'Instructions'.
+- [X] make complexity 4 or under
+- [X] instruction: Argument of type 'string' is not assignable to parameter of type 'Instructions'
+- [X] go: Argument of type 'string' is not assignable to parameter of type 'Instructions'.
