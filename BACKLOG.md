@@ -12,3 +12,4 @@
 - [X] Local Quality Gate
 - [X] Remote Pipeline GitHub Actions
 - [X] add comments where needed
+- [X] refactor: integrate HeadingEnum for improved heading management in Rover class

@@ -1,4 +1,4 @@
-import { RoverState, Heading, Instructions } from "./RoverState";
+import { RoverState, Heading, Instructions, HeadingEnum } from "./RoverState";
 
 export class Rover {
   
@@ -6,11 +6,21 @@ export class Rover {
     constructor(startingPosition: string) {
       const startingPositionParts = startingPosition.split(" ");
       const MIN_STARTING_POSITION_PARTS = 3;
-      
+
+      // <string, HeadingEnum> = generics for Map
+      const stringToHeadingEnum: Map<string, HeadingEnum> = new Map([
+        ["E", HeadingEnum.East],
+        ["N", HeadingEnum.North],
+        ["W", HeadingEnum.West],
+        ["S", HeadingEnum.South]
+      ]);
+
+      const myHeading = stringToHeadingEnum.get(startingPositionParts[2]);
+
       if (startingPositionParts.length >= MIN_STARTING_POSITION_PARTS) {
         this.roverState.xCoordinate = parseInt(startingPositionParts[0], 10);
         this.roverState.yCoordinate = parseInt(startingPositionParts[1], 10);
-        this.roverState.currentHeading = startingPositionParts[2][0] as Heading;
+        this.roverState.currentHeading = myHeading || HeadingEnum.North;
       }
     }
 
@@ -23,9 +33,11 @@ export class Rover {
 
     // Execute a single instruction: turn left/right or move forward
     private executeInstruction(instruction: Instructions): void {
+      const left = "L";
+      const right = "R";
       const instructions = {
-        L: () => this.turn("L"),
-        R: () => this.turn("R"),
+        L: () => this.turn(left),
+        R: () => this.turn(right),
         M: () => this.headingMove()
       };
       
@@ -40,7 +52,7 @@ export class Rover {
       };
 
       const current = this.roverState.currentHeading;
-      this.roverState.currentHeading = turns[direction][current] as Heading;
+      this.roverState.currentHeading = turns[direction][current] as HeadingEnum;
     }
 
     // Move one step in the current heading direction

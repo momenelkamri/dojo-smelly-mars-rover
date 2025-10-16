@@ -18,3 +18,6 @@
 🍅 17 - remote Pipeline github actions
 🍅 18 - add comments + finalize
 ------ 18 🍅 ------
+🍅 19 - refactor: integrate HeadingEnum for improved heading management in Rover class
+🍅 20 - refactor: integrate HeadingEnum for improved heading management in Rover class
+🍅 21 - refactor: integrate HeadingEnum for improved heading management in Rover class
