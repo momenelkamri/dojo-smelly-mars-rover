@@ -1,4 +1,4 @@
-import { RoverState,Instructions, HeadingEnum } from "./RoverState";
+import { RoverState,Instructions, Heading } from "./RoverState";
 
 export class Rover {
   
@@ -8,14 +8,14 @@ export class Rover {
       const MIN_STARTING_POSITION_PARTS = 3;
 
       // <string, HeadingEnum> = generics for Map
-      const stringToHeadingEnum: Map<string, HeadingEnum> = new Map([
-        ["E", HeadingEnum.East],
-        ["N", HeadingEnum.North],
-        ["W", HeadingEnum.West],
-        ["S", HeadingEnum.South]
+      const stringToHeadingEnum: Map<string, Heading> = new Map([
+        ["E", Heading.East],
+        ["N", Heading.North],
+        ["W", Heading.West],
+        ["S", Heading.South]
       ]);
 
-      const myHeading = stringToHeadingEnum.get(startingPositionParts[2]) ?? HeadingEnum.North;
+      const myHeading = stringToHeadingEnum.get(startingPositionParts[2]) ?? Heading.North;
 
       if (startingPositionParts.length >= MIN_STARTING_POSITION_PARTS) {
         this.roverState.xCoordinate = parseInt(startingPositionParts[0], 10);
@@ -33,45 +33,49 @@ export class Rover {
 
     // Execute a single instruction: turn left/right or move forward
     private executeInstruction(instruction: Instructions): void {
-      const left = "L";
-      const right = "R";
       const instructions = {
-        L: () => this.turn(left),
-        R: () => this.turn(right),
+        L: () => this.turnLeft(),
+        R: () => this.turnRight(),
         M: () => this.headingMove()
       };
       
       instructions[instruction]();
     }
-
-    // Turn left or right based on current heading
-    private turn(direction: "L" | "R"): void {
-      const turns: Record<"L" | "R", Record<HeadingEnum, HeadingEnum>> = {
-        L: {
-          [HeadingEnum.East]: HeadingEnum.North,
-          [HeadingEnum.North]: HeadingEnum.West,
-          [HeadingEnum.West]: HeadingEnum.South,
-          [HeadingEnum.South]: HeadingEnum.East,
-        },
-        R: {
-          [HeadingEnum.East]: HeadingEnum.South,
-          [HeadingEnum.South]: HeadingEnum.West,
-          [HeadingEnum.West]: HeadingEnum.North,
-          [HeadingEnum.North]: HeadingEnum.East,
-        },
+    
+    private turnLeft(): void {
+      const nextTurns: Record<Heading, Heading> = {
+        [Heading.East]: Heading.North,
+        [Heading.North]: Heading.West,
+        [Heading.West]: Heading.South,
+        [Heading.South]: Heading.East,
       };
 
+      this.turn(nextTurns);
+    }
+
+    private turnRight(): void {
+      const nextTurns: Record<Heading, Heading> = {
+        [Heading.East]: Heading.South,
+        [Heading.South]: Heading.West,
+        [Heading.West]: Heading.North,
+        [Heading.North]: Heading.East,
+      };
+
+      this.turn(nextTurns);
+    }
+
+    private turn(nextTurns: Record<Heading, Heading>): void {
       const current = this.roverState.currentHeading;
-      this.roverState.currentHeading = turns[direction][current];
+      this.roverState.currentHeading = nextTurns[current];
     }
 
     // Move one step in the current heading direction
     private headingMove(): void {
-      const headingMoveStep: Record<HeadingEnum, { x: number; y: number }> = {
-        [HeadingEnum.East]: { x: 1, y: 0 },
-        [HeadingEnum.South]: { x: 0, y: -1 },
-        [HeadingEnum.West]: { x: -1, y: 0 },
-        [HeadingEnum.North]: { x: 0, y: 1 },
+      const headingMoveStep: Record<Heading, { x: number; y: number }> = {
+        [Heading.East]: { x: 1, y: 0 },
+        [Heading.South]: { x: 0, y: -1 },
+        [Heading.West]: { x: -1, y: 0 },
+        [Heading.North]: { x: 0, y: 1 },
       };
       const moveStep = headingMoveStep[this.roverState.currentHeading];
       this.roverState.xCoordinate += moveStep.x;
