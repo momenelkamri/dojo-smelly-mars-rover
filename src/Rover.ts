@@ -1,6 +1,11 @@
 import { RoverState,Instructions, Heading } from "./RoverState";
+import { TurnLeft } from "./TurnLeft";
+import { TurnRight } from "./TurnRight";
+import { Move } from "./Move";
 
 export class Rover {
+    // Internal state of the rover
+    private roverState: RoverState = new RoverState();
   
     // Initialize rover with starting position (x, y, heading)
     constructor(startingPosition: string) {
@@ -33,53 +38,17 @@ export class Rover {
 
     // Execute a single instruction: turn left/right or move forward
     private executeInstruction(instruction: Instructions): void {
+      const turnLeft = new TurnLeft();
+      const turnRight = new TurnRight();
+      const move = new Move();
+
       const instructions = {
-        L: () => this.turnLeft(),
-        R: () => this.turnRight(),
-        M: () => this.headingMove()
+        M: () => move.update(this.roverState),
+        L: () => turnLeft.update(this.roverState),
+        R: () => turnRight.update(this.roverState),
       };
       
       instructions[instruction]();
-    }
-    
-    private turnLeft(): void {
-      const nextTurns: Record<Heading, Heading> = {
-        [Heading.East]: Heading.North,
-        [Heading.North]: Heading.West,
-        [Heading.West]: Heading.South,
-        [Heading.South]: Heading.East,
-      };
-
-      this.turn(nextTurns);
-    }
-
-    private turnRight(): void {
-      const nextTurns: Record<Heading, Heading> = {
-        [Heading.East]: Heading.South,
-        [Heading.South]: Heading.West,
-        [Heading.West]: Heading.North,
-        [Heading.North]: Heading.East,
-      };
-
-      this.turn(nextTurns);
-    }
-
-    private turn(nextTurns: Record<Heading, Heading>): void {
-      const current = this.roverState.currentHeading;
-      this.roverState.currentHeading = nextTurns[current];
-    }
-
-    // Move one step in the current heading direction
-    private headingMove(): void {
-      const headingMoveStep: Record<Heading, { x: number; y: number }> = {
-        [Heading.East]: { x: 1, y: 0 },
-        [Heading.South]: { x: 0, y: -1 },
-        [Heading.West]: { x: -1, y: 0 },
-        [Heading.North]: { x: 0, y: 1 },
-      };
-      const moveStep = headingMoveStep[this.roverState.currentHeading];
-      this.roverState.xCoordinate += moveStep.x;
-      this.roverState.yCoordinate += moveStep.y;
     }
 
     // Return the current coordinates and heading as a formatted string
@@ -91,7 +60,4 @@ export class Rover {
     public getCoordinatesWithHeading(): string {
       return this.COORDINATES_WITH_HEADING;
     }
-
-    // Internal state of the rover
-    private roverState: RoverState = new RoverState();
   }

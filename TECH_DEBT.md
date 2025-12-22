@@ -17,3 +17,4 @@
 - [X] make complexity 4 or under
 - [X] instruction: Argument of type 'string' is not assignable to parameter of type 'Instructions'
 - [X] go: Argument of type 'string' is not assignable to parameter of type 'Instructions'.
+- dupplication in turnLeft(), turnRight(),
