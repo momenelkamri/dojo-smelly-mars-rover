@@ -1,5 +1,5 @@
 import { IInstructionStrategy } from "./Move";
-import { Heading, RoverState } from "./RoverState";
+import { Heading, Instructions, RoverState } from "./RoverState";
 
 
 export class TurnLeft implements IInstructionStrategy {
@@ -14,7 +14,11 @@ export class TurnLeft implements IInstructionStrategy {
         this.turn(nextTurns, roverState);
     }
 
-    private turn(nextTurns: Record<Heading, Heading>, roverState: RoverState): void {    
+    public canUpdate(instruction: Instructions): boolean {
+        return instruction === Instructions.L;
+    }
+
+    public turn(nextTurns: Record<Heading, Heading>, roverState: RoverState): void {    
         const current = roverState.currentHeading;
         roverState.currentHeading = nextTurns[current];
     }

@@ -1,5 +1,5 @@
 import { IInstructionStrategy } from "./Move";
-import { Heading, RoverState } from "./RoverState";
+import { Heading, Instructions, RoverState } from "./RoverState";
 
 export class TurnRight implements IInstructionStrategy {
     public update(roverState: RoverState): void {
@@ -11,6 +11,10 @@ export class TurnRight implements IInstructionStrategy {
         };
 
         this.turn(nextTurns, roverState);
+    }
+
+    public canUpdate(instruction: Instructions): boolean {
+        return instruction === Instructions.R;
     }
     
     private turn(nextTurns: Record<Heading, Heading>, roverState: RoverState): void {

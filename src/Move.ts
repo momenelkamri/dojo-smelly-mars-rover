@@ -1,7 +1,8 @@
-import { Heading, RoverState } from './RoverState';
+import { Heading, RoverState, Instructions } from './RoverState';
 
 export interface IInstructionStrategy {
     update(roverState: RoverState): void;
+    canUpdate(instruction: Instructions): boolean;
 }
 
 export class Move implements IInstructionStrategy {
@@ -16,4 +17,9 @@ export class Move implements IInstructionStrategy {
       roverState.xCoordinate += moveStep.x;
       roverState.yCoordinate += moveStep.y;
     }
+
+    public canUpdate(instruction: Instructions): boolean {
+      return instruction === Instructions.M;
+    }
+
 }

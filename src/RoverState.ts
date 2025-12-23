@@ -5,7 +5,13 @@ export enum Heading {
     South = "S"
 }
 
-export type Instructions = "L" | "R" | "M";
+// export type Instructions = "L" | "R" | "M";
+
+export enum Instructions {
+    L = "L",
+    R = "R",
+    M = "M"
+}
 
 export class RoverState {
     xCoordinate: number = 0;
