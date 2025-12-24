@@ -1,34 +1,15 @@
-import { RoverState,Instructions, Heading } from "./RoverState";
+import { RoverState, Instructions } from './RoverState';
 import { InstructionsHandler } from "./instructionsHandler";
 
 export class Rover {
     // Internal state of the rover
-    private roverState: RoverState = new RoverState();
+    private roverState: RoverState;
     private instructionHandler: InstructionsHandler;
   
     // Initialize rover with starting position (x, y, heading)
-    constructor(startingPosition: string, instructionHandler: InstructionsHandler ) {
+    constructor(instructionHandler: InstructionsHandler, roverState: RoverState ) {
       this.instructionHandler = instructionHandler;
-
-      const startingPositionParts = startingPosition.split(" ");
-      const MIN_STARTING_POSITION_PARTS = 3;
-
-      // <string, HeadingEnum> = generics for Map
-      const stringToHeadingEnum: Map<string, Heading> = new Map([
-        ["E", Heading.East],
-        ["N", Heading.North],
-        ["W", Heading.West],
-        ["S", Heading.South]
-      ]);
-
-      const myHeading = stringToHeadingEnum.get(startingPositionParts[2]) ?? Heading.North;
-
-
-      if (startingPositionParts.length >= MIN_STARTING_POSITION_PARTS) {
-        this.roverState.xCoordinate = parseInt(startingPositionParts[0], 10);
-        this.roverState.yCoordinate = parseInt(startingPositionParts[1], 10);
-        this.roverState.currentHeading = myHeading;
-      }
+      this.roverState = roverState;
     }
 
     // Process a string of instructions (L, R, M)

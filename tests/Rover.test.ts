@@ -1,12 +1,14 @@
 import { InstructionsHandler } from '../src/instructionsHandler';
 import { Move } from '../src/Move';
 import { Rover } from '../src/Rover';
+import { RoverStateFactory } from '../src/RoverStateFactory';
 import { TurnLeft } from '../src/TurnLeft';
 import { TurnRight } from '../src/TurnRight';
 
 describe("MarsRoverShould", () => {
    const instructionHandler = new InstructionsHandler({ strategies: [ new Move(), new TurnLeft(), new TurnRight() ]  });
-  
+   const roverStateFactory = new RoverStateFactory(); 
+     
     test.each([
       ["1 2 N", "", "1 2 N"],
       ["1 2 N", "L", "1 2 W"],
@@ -26,7 +28,8 @@ describe("MarsRoverShould", () => {
     ])(
       "start at '%s', with instructions '%s' => '%s'",
       (startingPosition, instructions, expectedOutput) => {
-        const rover = new Rover(startingPosition, instructionHandler);
+        const roverState = roverStateFactory.create(startingPosition);
+        const rover = new Rover(instructionHandler, roverState);
         rover.go(instructions);        
         expect(rover.getCoordinatesWithHeading()).toBe(expectedOutput);
       }

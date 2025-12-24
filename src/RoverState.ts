@@ -14,7 +14,13 @@ export enum Instructions {
 }
 
 export class RoverState {
-    xCoordinate: number = 0;
-    yCoordinate: number = 0;
-    currentHeading: Heading = Heading.North;
+    xCoordinate: number;
+    yCoordinate: number;
+    currentHeading: Heading;
+
+    constructor(xCoordinate: number, yCoordinate: number, currentHeading: Heading) {
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
+        this.currentHeading = currentHeading;
+    }
 } 
