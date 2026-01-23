@@ -13,7 +13,14 @@ export enum Instructions {
     M = "M"
 }
 
+type Coordinate = {
+    x: number;
+    y: number;
+};
+
 export class RoverState {
+    // coordinate: { x: number; y: number } = { x: 0, y: 0 };
+
     xCoordinate: number;
     yCoordinate: number;
     currentHeading: Heading;
@@ -22,5 +29,10 @@ export class RoverState {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
         this.currentHeading = currentHeading;
+    }
+
+    public setCoordinate(coordinate: Coordinate): void {
+        this.xCoordinate = coordinate.x;
+        this.yCoordinate = coordinate.y;
     }
 } 
