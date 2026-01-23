@@ -35,4 +35,8 @@ export class RoverState {
         this.xCoordinate = coordinate.x;
         this.yCoordinate = coordinate.y;
     }
+
+    public getCoordinate(): Coordinate {
+        return { x: this.xCoordinate, y: this.yCoordinate };
+    }
 } 
