@@ -21,8 +21,8 @@ type Coordinate = {
 export class RoverState {
     // coordinate: { x: number; y: number } = { x: 0, y: 0 };
 
-    xCoordinate: number;
-    yCoordinate: number;
+    private xCoordinate: number;
+    private yCoordinate: number;
     currentHeading: Heading;
 
     constructor(xCoordinate: number, yCoordinate: number, currentHeading: Heading) {

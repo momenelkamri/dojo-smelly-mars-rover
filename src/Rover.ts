@@ -21,7 +21,8 @@ export class Rover {
 
     // Return the current coordinates and heading as a formatted string
     public get COORDINATES_WITH_HEADING(): string {
-      return `${this.roverState.xCoordinate} ${this.roverState.yCoordinate} ${this.roverState.currentHeading}`;
+      const currentCoordinates = this.roverState.getCoordinate();
+      return `${currentCoordinates.x} ${currentCoordinates.y} ${this.roverState.currentHeading}`;
     }
 
     // Public method to get the current coordinates and heading
