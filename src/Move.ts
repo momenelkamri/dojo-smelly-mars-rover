@@ -13,7 +13,7 @@ export class Move implements IInstructionStrategy {
         [Heading.West]: { x: -1, y: 0 },
         [Heading.North]: { x: 0, y: 1 },
       };
-      const moveStep = headingMoveStep[roverState.currentHeading];
+      const moveStep = headingMoveStep[roverState.getCurrentHeading()];
       
       const currentCoordinates = roverState.getCoordinate();
       const newXCoordinate = currentCoordinates.x + moveStep.x;

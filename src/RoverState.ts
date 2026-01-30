@@ -20,7 +20,7 @@ type Coordinate = {
 
 export class RoverState {
     private coordinate: Coordinate;
-    currentHeading: Heading;
+    private currentHeading: Heading;
 
     constructor(xCoordinate: number, yCoordinate: number, currentHeading: Heading) {
         this.coordinate = { 
@@ -37,5 +37,13 @@ export class RoverState {
 
     public getCoordinate(): Coordinate {
         return this.coordinate;
+    }
+
+    public updateCurrentHeading(heading: Heading): void {
+        this.currentHeading = heading;
+    }
+
+    public getCurrentHeading(): Heading {
+        return this.currentHeading;
     }
 } 

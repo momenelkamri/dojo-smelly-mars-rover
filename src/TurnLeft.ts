@@ -19,7 +19,7 @@ export class TurnLeft implements IInstructionStrategy {
     }
 
     public turn(nextTurns: Record<Heading, Heading>, roverState: RoverState): void {    
-        const current = roverState.currentHeading;
-        roverState.currentHeading = nextTurns[current];
+        const current = roverState.getCurrentHeading();
+        roverState.updateCurrentHeading(nextTurns[current]);
     }
 }
